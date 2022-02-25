@@ -112,8 +112,9 @@ indent_size = 4
   "format:quick": "pretty-quick",
   "lint": "eslint .",
   "lint:staged": "lint-staged",
-  "prepare": "husky install"
-},
+  "prepare": "husky install",
+  "test": "jest --passWithNoTests"
+}
 ```
 
 ## Add pre-commit husky hook
