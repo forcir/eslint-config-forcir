@@ -49,6 +49,8 @@ This package also may contain up to 4 additional files that use rules or overrid
 - `forcir/next`
 - `forcir/next-experimental` (may or may not be available)
 
+> You **need** to also run `yarn add eslint-config-next --dev --exact`
+
 #### React Frontend-only Applications
 
 - `forcir/frontend`
