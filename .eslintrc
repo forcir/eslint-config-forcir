@@ -1,0 +1,11 @@
+{
+  "extends": "forcir",
+  "overrides": [
+    {
+      "files": ["*.js"],
+      "rules": {
+        "unicorn/prefer-module": "off"
+      }
+    }
+  ]
+}

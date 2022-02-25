@@ -1,0 +1,132 @@
+<p align="center"><!-- Used to apply a top margin in markdown --></p>
+<p align="center">
+  <a href="https://www.forcir.com/#gh-light-mode-only" target="_blank">
+    <img src="./.github/assets/slate.svg" alt="Forcir Logo" height="30">
+  </a>
+  <a href="https://www.forcir.com/#gh-slate-mode-only" target="_blank">
+    <img src="./.github/assets/common.svg" alt="Forcir Logo" height="30">
+  </a>
+</p>
+<p align="center"><strong>Shared ESLint Configs</strong></p>
+
+## Install
+
+```bash
+yarn add eslint-config-forcir --dev --exact
+```
+
+## Peer Dependencies
+
+```bash
+yarn add typescript prettier eslint jest lint-staged husky --dev --exact
+```
+
+## `.eslintrc` file in project root
+
+```jsonc
+{
+  // Can be any of: `forcir`, `forcir/backend`, `forcir/frontend`, `forcir/next`
+  "extends": "forcir/backend"
+}
+```
+
+> If there are any files you want to exclude from ESLint add `.eslintignore` to project root
+
+### Configurations
+
+This package includes 3 guaranteed files of shared rules.
+
+This package also may contain up to 3 additional files that use rules or overrides considered experimental. These do not adhere to semantic versioning (SEMVER). They may be removed at any point without warning.
+
+#### Next.JS Full-Stack Websites / Applications
+
+- `forcir/next`
+- `forcir/next-experimental`
+
+#### React Frontend-only Applications
+
+- `forcir/frontend`
+- `forcir/frontend-experimental`
+
+#### Node Backend-only APIs / Serverless
+
+- `forcir/backend`
+- `forcir/backend-experimental`
+
+## `.prettierrc` file in project root
+
+```json
+{
+  "printWidth": 120,
+  "singleQuote": true
+}
+```
+
+> If there are any files you want to exclude from Prettier add `.prettierignore` to project root
+
+## `.editorconfig` file in project root
+
+```ini
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_size = 2
+indent_style = space
+insert_final_newline = true
+max_line_length = 120
+trim_trailing_whitespace = true
+
+[*.md]
+max_line_length = 0
+trim_trailing_whitespace = false
+
+[COMMIT_EDITMSG]
+max_line_length = 0
+
+[*.{yml,yaml}]
+indent_size = 2
+
+[docker-compose.yml]
+indent_size = 4
+```
+
+## Add the `engines` field to `package.json`
+
+```json
+"engines": {
+  "node": ">=16.14",
+  "npm": ">=8.5.2",
+  "yarn": ">=1.22.17"
+}
+```
+
+## Add linting and formatting scripts
+
+```jsonc
+"scripts": {
+  // ...
+  "format": "prettier --write \"**/*.{ts,tsx,js,json,graphql,md}\"",
+  "format:check": "prettier --debug-check \"**/*.{ts,tsx,js,json,graphql,md}\"",
+  "format:quick": "pretty-quick",
+  "lint": "eslint .",
+  "lint:staged": "lint-staged",
+  "prepare": "husky install"
+},
+```
+
+## Add pre-commit husky hook
+
+For automatically linting and formatting any files staged for commit
+
+npx husky add .husky/pre-commit "yarn run lint:staged"
+
+## `.lintstagedrc` file in project root
+
+```json
+{
+  "*.{ts,tsx,js}": ["eslint --quiet", "git add"],
+  "*.{ts,tsx,js,json,graphql,md}": ["prettier --write", "git add"]
+}
+```

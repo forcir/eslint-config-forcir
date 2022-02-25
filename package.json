@@ -1,0 +1,65 @@
+{
+  "name": "eslint-config-forcir",
+  "version": "1.0.0",
+  "private": false,
+  "homepage": "https://github.com/forcir/eslint-config-forcir",
+  "bugs": {
+    "url": "https://github.com/forcir/eslint-config-forcir/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:forcir/eslint-config-forcir.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Forcir Engineering",
+    "email": "engineering@forcir.com"
+  },
+  "main": "index.js",
+  "files": [
+    "*.js"
+  ],
+  "scripts": {
+    "format": "prettier --write \"**/*.{ts,tsx,js,json,graphql,md}\"",
+    "format:check": "prettier --debug-check \"**/*.{ts,tsx,js,json,graphql,md}\"",
+    "lint": "eslint .",
+    "lint:staged": "lint-staged",
+    "prepare": "husky install",
+    "test": "jest --passWithNoTests"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "5.12.1",
+    "@typescript-eslint/parser": "5.12.1",
+    "eslint": "8.9.0",
+    "eslint-config-forcir": "0.0.1-canary.1",
+    "eslint-config-prettier": "8.4.0",
+    "eslint-plugin-import": "2.25.4",
+    "eslint-plugin-jest": "26.1.1",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-promise": "6.0.0",
+    "eslint-plugin-react": "7.28.0",
+    "eslint-plugin-react-hooks": "4.3.0",
+    "eslint-plugin-unicorn": "41.0.0",
+    "husky": "7.0.4",
+    "jest": "27.5.1",
+    "lint-staged": "12.3.4",
+    "prettier": "2.5.1",
+    "typescript": "4.5.5"
+  },
+  "peerDependencies": {
+    "eslint": "^8.9",
+    "husky": "^7.0",
+    "jest": "^27.5",
+    "lint-staged": "^12.3",
+    "prettier": "^2.5",
+    "typescript": "^4.5"
+  },
+  "engines": {
+    "node": ">=16.14",
+    "npm": ">=8.5.2",
+    "yarn": ">=1.22.17"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.com"
+  }
+}

@@ -1,0 +1,108 @@
+name: Continuous Integration
+
+on: push
+
+jobs:
+  Setup:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node-version: [16]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: setup node v${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: use cached node_modules
+        id: cache
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-${{ matrix.node-version }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: ${{ runner.os }}-${{ matrix.node-version }}-yarn-
+
+      - name: install dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: yarn install --frozen-lockfile
+        env:
+          CI: true
+
+  Lint:
+    needs: [Setup]
+
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node-version: [16.14]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: setup node v${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: use cached node_modules
+        id: cache
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-${{ matrix.node-version }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: ${{ runner.os }}-${{ matrix.node-version }}-yarn-
+
+      - name: install dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: yarn install --frozen-lockfile
+        env:
+          CI: true
+
+      - name: code lint
+        run: yarn lint
+        env:
+          CI: true
+
+  Test:
+    needs: [Setup]
+
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node-version: [16.14]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: setup node v${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: use cached node_modules
+        id: cache
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-${{ matrix.node-version }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: ${{ runner.os }}-${{ matrix.node-version }}-yarn-
+
+      - name: install dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: yarn install --frozen-lockfile
+        env:
+          CI: true
+
+      - name: unit tests
+        run: yarn test
+        env:
+          CI: true
