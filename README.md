@@ -27,7 +27,7 @@ yarn add typescript prettier eslint jest lint-staged husky --dev --exact
 
 ```jsonc
 {
-  "extends": "forcir/backend"
+  "extends": "forcir"
 }
 ```
 
