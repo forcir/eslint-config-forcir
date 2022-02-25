@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- `forcir/next` relies on `eslint-plugin-react`, the installed version was `7.28.0` which had a bug. Upgraded to version [https://github.com/yannickcr/eslint-plugin-react/releases/tag/v7.29.1](7.29.1).
+- `forcir/next` relies on `eslint-plugin-react`, the installed version was `7.28.0` which had a bug. Upgraded to version [7.29.1](https://github.com/yannickcr/eslint-plugin-react/releases/tag/v7.29.1).
 
 ## [1.2.2] - 2021-02-24
 
