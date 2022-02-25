@@ -47,18 +47,6 @@ module.exports = {
         '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_+', varsIgnorePattern: '^_+' }],
         '@typescript-eslint/no-use-before-define': ['error', { typedefs: false, enums: false }],
         '@typescript-eslint/prefer-optional-chain': 'warn',
-        '@typescript-eslint/promise-function-async': [
-          'error',
-          {
-            allowedPromiseNames: ['Thenable'],
-            checkArrowFunctions: true,
-            checkFunctionDeclarations: true,
-            checkFunctionExpressions: true,
-            checkMethodDeclarations: true,
-          },
-        ],
-        '@typescript-eslint/require-await': 'error',
-        '@typescript-eslint/return-await': 'error',
 
         'unicorn/no-null': 'warn',
       },

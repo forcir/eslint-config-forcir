@@ -25,7 +25,6 @@ yarn add typescript prettier eslint jest lint-staged husky --dev --exact
 
 ```jsonc
 {
-  // Can be any of: `forcir`, `forcir/backend`, `forcir/frontend`, `forcir/next`
   "extends": "forcir/backend"
 }
 ```
@@ -34,24 +33,29 @@ yarn add typescript prettier eslint jest lint-staged husky --dev --exact
 
 ### Configurations
 
-This package includes 3 guaranteed files of shared rules.
+This package includes 4 guaranteed files of shared rules.
 
-This package also may contain up to 3 additional files that use rules or overrides considered experimental. These do not adhere to semantic versioning (SEMVER). They may be removed at any point without warning.
+This package also may contain up to 4 additional files that use rules or overrides considered experimental. These do not adhere to semantic versioning (SEMVER). They may be removed at any point without warning.
+
+#### General Base Configuration
+
+- `forcir`
+- `forcir/experimental` (may or may not be available)
 
 #### Next.JS Full-Stack Websites / Applications
 
 - `forcir/next`
-- `forcir/next-experimental`
+- `forcir/next-experimental` (may or may not be available)
 
 #### React Frontend-only Applications
 
 - `forcir/frontend`
-- `forcir/frontend-experimental`
+- `forcir/frontend-experimental` (may or may not be available)
 
 #### Node Backend-only APIs / Serverless
 
 - `forcir/backend`
-- `forcir/backend-experimental`
+- `forcir/backend-experimental` (may or may not be available)
 
 ## `.prettierrc` file in project root
 
