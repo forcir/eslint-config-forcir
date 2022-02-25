@@ -1415,10 +1415,21 @@ escodegen@^2.0.0:
   optionalDependencies:
     source-map "~0.6.1"
 
-eslint-config-forcir@0.0.1-canary.1:
-  version "0.0.1-canary.1"
-  resolved "https://registry.yarnpkg.com/eslint-config-forcir/-/eslint-config-forcir-0.0.1-canary.1.tgz#1e6c7629992819d5f14efe138985ad64dd7c812e"
-  integrity sha512-fKpFragvDqPzz1BrR2rToUyLluaAbhKlk6PC+8b4OLTH0MmgntBiYBKloXe9UyHVA3IbPEG5kM/wYxuGm0lbJA==
+eslint-config-forcir@1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-forcir/-/eslint-config-forcir-1.2.0.tgz#e45fb00f647e98c47e434ee179575942f35781d6"
+  integrity sha512-Dk1HLdaLdjPx/8LQUtRkfLlnjszlQzjGcZziEt95WIlN3A4BuHoab4RMDmxCIIlhXVq1Swg7RFYVvPYIDUg8yg==
+  dependencies:
+    "@typescript-eslint/eslint-plugin" "5.12.1"
+    "@typescript-eslint/parser" "5.12.1"
+    eslint-config-prettier "8.4.0"
+    eslint-plugin-import "2.25.4"
+    eslint-plugin-jest "26.1.1"
+    eslint-plugin-node "11.1.0"
+    eslint-plugin-promise "6.0.0"
+    eslint-plugin-react "7.28.0"
+    eslint-plugin-react-hooks "4.3.0"
+    eslint-plugin-unicorn "41.0.0"
 
 eslint-config-prettier@8.4.0:
   version "8.4.0"
