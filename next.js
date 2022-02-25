@@ -1,8 +1,9 @@
 module.exports = {
-  extends: ['./frontend.js'],
-  plugins: ['node', 'react', 'react-hooks'],
+  extends: ['./index.js'],
+  plugins: ['next'],
   env: {
     browser: true,
+    node: true,
   },
   settings: {
     react: {
