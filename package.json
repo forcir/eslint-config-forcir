@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-forcir",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "private": false,
   "homepage": "https://github.com/forcir/eslint-config-forcir",
   "bugs": {
