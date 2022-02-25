@@ -21,6 +21,7 @@ module.exports = {
   rules: {
     'node/no-unpublished-require': 'off',
 
+    'react/display-name': 'off',
     'react/prop-types': 'off',
 
     'react-hooks/rules-of-hooks': 'error',
