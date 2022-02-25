@@ -1,4 +1,8 @@
 {
-  "*.{ts,tsx,js}": ["yarn lint --quiet", "git add"],
-  "*.{ts,tsx,js,json,graphql,md}": ["yarn format --write", "git add"]
+  "*.{ts,tsx,js}": [
+    "yarn lint --quiet"
+  ],
+  "*.{ts,tsx,js,json,graphql,md}": [
+    "yarn format --write"
+  ]
 }

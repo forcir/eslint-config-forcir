@@ -129,7 +129,7 @@ npx husky add .husky/pre-commit "yarn run lint:staged"
 
 ```json
 {
-  "*.{ts,tsx,js}": ["eslint --quiet", "git add"],
-  "*.{ts,tsx,js,json,graphql,md}": ["prettier --write", "git add"]
+  "*.{ts,tsx,js}": ["yarn lint --quiet"],
+  "*.{ts,tsx,js,json,graphql,md}": ["yarn format --write"]
 }
 ```
