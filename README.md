@@ -11,13 +11,13 @@
 
 ## Install
 
-```bash
+```zsh
 yarn add eslint-config-forcir --dev --exact
 ```
 
 ## Peer Dependencies
 
-```bash
+```zsh
 yarn add typescript prettier eslint jest lint-staged husky --dev --exact
 ```
 
@@ -121,7 +121,9 @@ indent_size = 4
 
 For automatically linting and formatting any files staged for commit
 
+```zsh
 npx husky add .husky/pre-commit "yarn run lint:staged"
+```
 
 ## `.lintstagedrc` file in project root
 
