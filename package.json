@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-forcir",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "private": false,
   "homepage": "https://github.com/forcir/eslint-config-forcir",
   "bugs": {
@@ -55,6 +55,9 @@
     "lint-staged": "^12.3",
     "prettier": "^2.5",
     "typescript": "^4.5"
+  },
+  "optionalDependencies": {
+    "eslint-config-next": "^12.1"
   },
   "engines": {
     "node": ">=16.14",
