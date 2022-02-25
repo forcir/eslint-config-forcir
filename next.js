@@ -1,4 +1,3 @@
 module.exports = {
-  extends: ['./index.js'],
-  plugins: ['next'],
+  extends: ['./index.js', 'next'],
 };
