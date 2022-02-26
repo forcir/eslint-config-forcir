@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-forcir",
-  "version": "1.2.3",
+  "version": "2.0.0",
   "private": false,
   "homepage": "https://github.com/forcir/eslint-config-forcir",
   "bugs": {
@@ -22,7 +22,8 @@
   "scripts": {
     "format": "prettier --write \"**/*.{ts,tsx,js,json,graphql,md}\"",
     "format:check": "prettier --debug-check \"**/*.{ts,tsx,js,json,graphql,md}\"",
-    "lint": "eslint .",
+    "lint": "echo \"linter\"",
+    "lint:es": "eslint .",
     "lint:staged": "lint-staged",
     "prepare": "husky install",
     "test": "jest --passWithNoTests"
@@ -41,7 +42,6 @@
   },
   "devDependencies": {
     "eslint": "8.9.0",
-    "eslint-config-forcir": "1.2.0",
     "husky": "7.0.4",
     "jest": "27.5.1",
     "lint-staged": "12.3.4",
@@ -63,11 +63,8 @@
     }
   },
   "engines": {
-    "node": ">=16.14",
-    "npm": ">=8.5.2",
-    "yarn": ">=1.22.17"
-  },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.com"
+    "node": ">=14.19",
+    "npm": ">=6.14",
+    "yarn": ">=1.22"
   }
 }
