@@ -22,8 +22,7 @@
   "scripts": {
     "format": "prettier --write \"**/*.{ts,tsx,js,json,graphql,md}\"",
     "format:check": "prettier --debug-check \"**/*.{ts,tsx,js,json,graphql,md}\"",
-    "lint": "echo \"linter\"",
-    "lint:es": "eslint .",
+    "lint": "eslint .",
     "lint:staged": "lint-staged",
     "prepare": "husky install",
     "test": "jest --passWithNoTests"
@@ -42,6 +41,7 @@
   },
   "devDependencies": {
     "eslint": "8.9.0",
+    "eslint-config-forcir": "2.0.0",
     "husky": "7.0.4",
     "jest": "27.5.1",
     "lint-staged": "12.3.4",

@@ -1415,6 +1415,22 @@ escodegen@^2.0.0:
   optionalDependencies:
     source-map "~0.6.1"
 
+eslint-config-forcir@2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-forcir/-/eslint-config-forcir-2.0.0.tgz#c656dfeb6cdf550c8eb56a7862e9df89806ad2c5"
+  integrity sha512-J9ZL1k4Th0c5Apgl37K7UY6F51ZpL1OTyKxfITVaZgzR1DauT4IQnuPJx++k3qls6wCL2LuRml7sbxth6znDvg==
+  dependencies:
+    "@typescript-eslint/eslint-plugin" "5.12.1"
+    "@typescript-eslint/parser" "5.12.1"
+    eslint-config-prettier "8.4.0"
+    eslint-plugin-import "2.25.4"
+    eslint-plugin-jest "26.1.1"
+    eslint-plugin-node "11.1.0"
+    eslint-plugin-promise "6.0.0"
+    eslint-plugin-react "7.29.1"
+    eslint-plugin-react-hooks "4.3.0"
+    eslint-plugin-unicorn "41.0.0"
+
 eslint-config-prettier@8.4.0:
   version "8.4.0"
   resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-8.4.0.tgz#8e6d17c7436649e98c4c2189868562921ef563de"
