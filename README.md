@@ -56,6 +56,8 @@ This package also may contain up to 4 additional files that use rules or overrid
 - `forcir/frontend`
 - `forcir/frontend-experimental` (may or may not be available)
 
+> You **need** to also run `yarn add eslint-plugin-react eslint-plugin-react-hooks --dev --exact`
+
 #### Node Backend-only APIs / Serverless
 
 - `forcir/backend`
