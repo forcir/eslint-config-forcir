@@ -104,16 +104,16 @@ indent_size = 4
 
 ```json
 "engines": {
-  "node": ">=14",
+  "node": ">=14.19",
   "npm": ">=6.14",
   "yarn": ">=1.22"
 }
 ```
 
-## `.nvmrc` file in project root
+### `.nvmrc` file in project root
 
 ```
-14
+14.19
 ```
 
 ## Add linting and formatting scripts
