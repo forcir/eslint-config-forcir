@@ -22,7 +22,8 @@
   "scripts": {
     "format": "prettier --write \"**/*.{ts,tsx,js,json,graphql,md}\"",
     "format:check": "prettier --debug-check \"**/*.{ts,tsx,js,json,graphql,md}\"",
-    "lint": "eslint .",
+    "lint": "echo \"linter\"",
+    "lint:es": "eslint .",
     "lint:staged": "lint-staged",
     "prepare": "husky install",
     "test": "jest --passWithNoTests"
