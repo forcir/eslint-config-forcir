@@ -5,104 +5,122 @@ on: push
 jobs:
   Setup:
     runs-on: ${{ matrix.os }}
-
     strategy:
       matrix:
-        os: [ubuntu-latest]
-        node-version: [14.19]
-
+        os: [ubuntu-20.04]
+        node: [14]
     steps:
-      - uses: actions/checkout@v2
-
-      - name: setup node v${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+      - name: setup node v${{ matrix.node }}
+        uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: ${{ matrix.node }}
 
-      - name: use cached node_modules
-        id: cache
+      - name: checkout repository
+        uses: actions/checkout@v2
+
+      - name: fetch main branch from origin
+        run: git fetch --no-tags --prune --depth=1 origin +refs/heads/main:refs/remotes/origin/main
+
+      - name: node_modules cache
+        uses: actions/cache@v2
+        id: workspace-cache
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-${{ matrix.node }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: ${{ runner.os }}-${{ matrix.node }}-yarn-
+
+      - name: install dependancies
+        run: yarn install --frozen-lockfile
+
+  Format:
+    needs: [Setup]
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-20.04]
+        node: [14]
+    steps:
+      - name: setup node v${{ matrix.node }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 3
+
+      - name: fetch main branch from origin
+        run: git fetch --no-tags --prune --depth=1 origin +refs/heads/main:refs/remotes/origin/main
+
+      - name: node_modules cache
         uses: actions/cache@v2
         with:
           path: node_modules
-          key: ${{ runner.os }}-${{ matrix.node-version }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: ${{ runner.os }}-${{ matrix.node-version }}-yarn-
+          key: ${{ runner.os }}-${{ matrix.node }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: ${{ runner.os }}-${{ matrix.node }}-yarn-
 
-      - name: install dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: yarn install --frozen-lockfile
-        env:
-          CI: true
+      - name: run code format check
+        run: yarn format
 
   Lint:
     needs: [Setup]
-
     runs-on: ${{ matrix.os }}
-
     strategy:
       matrix:
-        os: [ubuntu-latest]
-        node-version: [14.19]
-
+        os: [ubuntu-20.04]
+        node: [14]
     steps:
-      - uses: actions/checkout@v2
-
-      - name: setup node v${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+      - name: setup node v${{ matrix.node }}
+        uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: ${{ matrix.node }}
 
-      - name: use cached node_modules
-        id: cache
+      - name: checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 3
+
+      - name: fetch main branch from origin
+        run: git fetch --no-tags --prune --depth=1 origin +refs/heads/main:refs/remotes/origin/main
+
+      - name: node_modules cache
         uses: actions/cache@v2
         with:
           path: node_modules
-          key: ${{ runner.os }}-${{ matrix.node-version }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: ${{ runner.os }}-${{ matrix.node-version }}-yarn-
+          key: ${{ runner.os }}-${{ matrix.node }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: ${{ runner.os }}-${{ matrix.node }}-yarn-
 
-      - name: install dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: yarn install --frozen-lockfile
-        env:
-          CI: true
-
-      - name: code lint
+      - name: run code lint check
         run: yarn lint
-        env:
-          CI: true
 
   Test:
     needs: [Setup]
-
     runs-on: ${{ matrix.os }}
-
     strategy:
       matrix:
-        os: [ubuntu-latest]
-        node-version: [14.19]
-
+        os: [ubuntu-20.04]
+        node: [14]
     steps:
-      - uses: actions/checkout@v2
-
-      - name: setup node v${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+      - name: setup node v${{ matrix.node }}
+        uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: ${{ matrix.node }}
 
-      - name: use cached node_modules
-        id: cache
+      - name: checkout repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 3
+
+      - name: fetch main branch from origin
+        run: git fetch --no-tags --prune --depth=1 origin +refs/heads/main:refs/remotes/origin/main
+
+      - name: node_modules cache
         uses: actions/cache@v2
         with:
           path: node_modules
-          key: ${{ runner.os }}-${{ matrix.node-version }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: ${{ runner.os }}-${{ matrix.node-version }}-yarn-
+          key: ${{ runner.os }}-${{ matrix.node }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: ${{ runner.os }}-${{ matrix.node }}-yarn-
 
-      - name: install dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: yarn install --frozen-lockfile
-        env:
-          CI: true
-
-      - name: unit tests
+      - name: run unit test check
         run: yarn test
-        env:
-          CI: true
