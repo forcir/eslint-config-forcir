@@ -156,14 +156,9 @@ npx husky add .husky/pre-commit "yarn run lint:staged"
 ```ts
 import type { Config } from '@jest/types';
 
-// Add any custom config to be passed to Jest
 const config: Config.InitialOptions = {
   collectCoverage: true,
-  coverageThreshold: {
-    global: { branches: 100, functions: 100, lines: 100, statements: 100 },
-  },
-  // setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
-  // if using TypeScript with a baseUrl set to the root directory then you need the below for alias' to work
+  coverageThreshold: { global: { branches: 100, functions: 100, lines: 100, statements: 100 } },
   moduleDirectories: ['node_modules', '<rootDir>/'],
   roots: ['<rootDir>/tests/'],
   testEnvironment: 'jest-environment-jsdom',
