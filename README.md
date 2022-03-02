@@ -13,13 +13,13 @@
 
 > Forcir's internal coding standards require version clamping so we've included an `--exact` flag. For your convenience we've placed that flag at the end so you can optionally omit copying it.
 
-### Peer Dependencies
+#### Peer Dependencies
 
 ```zsh
 yarn add typescript prettier eslint jest lint-staged husky --dev --exact
 ```
 
-### Forcir ESLint Configs
+#### Forcir ESLint Configs
 
 ```zsh
 yarn add eslint-config-forcir --dev --exact
