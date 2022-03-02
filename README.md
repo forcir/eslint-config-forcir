@@ -16,7 +16,7 @@
 #### Peer Dependencies
 
 ```zsh
-yarn add typescript prettier eslint jest lint-staged husky --dev --exact
+yarn add typescript prettier eslint jest @types/jest ts-jest ts-node lint-staged husky --dev --exact
 ```
 
 #### Forcir ESLint Configs
@@ -150,3 +150,30 @@ npx husky add .husky/pre-commit "yarn run lint:staged"
   "*.{ts,tsx,js,json,graphql,md}": ["yarn format --write"]
 }
 ```
+
+## `jest.config.ts` file in project root
+
+```ts
+import type { Config } from '@jest/types';
+
+// Add any custom config to be passed to Jest
+const config: Config.InitialOptions = {
+  collectCoverage: true,
+  coverageThreshold: {
+    global: { statements: 100, branches: 100, functions: 100, lines: 100 },
+  },
+  // setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+  // if using TypeScript with a baseUrl set to the root directory then you need the below for alias' to work
+  moduleDirectories: ['node_modules', '<rootDir>/'],
+  roots: ['<rootDir>/tests/'],
+  testEnvironment: 'jest-environment-jsdom',
+  transform: { '^.+\\.tsx?$': 'ts-jest' },
+};
+
+module.exports = config;
+```
+
+**Remember to:**
+
+- Adjust `config.coverageThreshold.global` accordingly. 100% threshold is of course the desirable amount, but that is not always possible.
+- Remove the `--passWithNoTests` flag in the project's `package.json` test script when the first test is written.
