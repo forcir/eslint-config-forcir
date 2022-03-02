@@ -160,7 +160,7 @@ import type { Config } from '@jest/types';
 const config: Config.InitialOptions = {
   collectCoverage: true,
   coverageThreshold: {
-    global: { statements: 100, branches: 100, functions: 100, lines: 100 },
+    global: { branches: 100, functions: 100, lines: 100, statements: 100 },
   },
   // setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   // if using TypeScript with a baseUrl set to the root directory then you need the below for alias' to work
