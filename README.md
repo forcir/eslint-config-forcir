@@ -19,6 +19,8 @@
 yarn add typescript prettier eslint jest lint-staged husky --dev --exact
 ```
 
+### Forcir ESLint Configs
+
 ```zsh
 yarn add eslint-config-forcir --dev --exact
 ```
