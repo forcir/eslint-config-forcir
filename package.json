@@ -2,6 +2,7 @@
   "name": "eslint-config-forcir",
   "version": "3.0.0",
   "private": false,
+  "description": "Shared ESLint (and general codebase) configurations used across the Forcir organization.",
   "homepage": "https://github.com/forcir/eslint-config-forcir",
   "bugs": {
     "url": "https://github.com/forcir/eslint-config-forcir/issues"
@@ -22,7 +23,8 @@
   "scripts": {
     "format": "prettier --write \"**/*.{ts,tsx,js,json,graphql,md}\"",
     "format:check": "prettier --debug-check \"**/*.{ts,tsx,js,json,graphql,md}\"",
-    "lint": "eslint .",
+    "lint": "eslint . --fix",
+    "lint:check": "eslint .",
     "lint:staged": "lint-staged",
     "prepare": "husky install",
     "test": "jest --passWithNoTests"
