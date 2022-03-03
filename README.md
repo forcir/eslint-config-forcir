@@ -16,7 +16,7 @@
 #### Peer Dependencies
 
 ```zsh
-yarn add typescript prettier eslint jest @types/jest ts-jest ts-node lint-staged husky --dev --exact
+yarn add typescript@4.5.5 prettier eslint jest @types/jest @jest/types ts-jest ts-node @types/ts-node lint-staged husky --dev --exact
 ```
 
 #### Forcir ESLint Configs
@@ -165,7 +165,7 @@ const config: Config.InitialOptions = {
   transform: { '^.+\\.tsx?$': 'ts-jest' },
 };
 
-module.exports = config;
+export default config;
 ```
 
 **Remember to:**
