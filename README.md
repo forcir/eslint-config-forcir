@@ -130,7 +130,7 @@ indent_size = 4
   "lint:check": "eslint .",
   "lint:staged": "lint-staged",
   "prepare": "husky install",
-  "test": "jest --passWithNoTests"
+  "test": "NODE_ENV=test jest --passWithNoTests"
 }
 ```
 

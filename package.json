@@ -21,6 +21,7 @@
     "*.js"
   ],
   "scripts": {
+    "build": "echo \"No build step required\"",
     "format": "prettier --write \"**/*.{ts,tsx,js,json,graphql,md}\"",
     "format:check": "prettier --debug-check \"**/*.{ts,tsx,js,json,graphql,md}\"",
     "lint": "eslint . --fix",
